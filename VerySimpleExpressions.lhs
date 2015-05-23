@@ -256,7 +256,7 @@ whitespace handling:
 >     whitespace
 >     void $ char ')'
 >     whitespace
->     return (Parentheses (read e))
+>     return $ Parentheses (read e)
 
 ```
 *Main> regularParse parensW "(1)"

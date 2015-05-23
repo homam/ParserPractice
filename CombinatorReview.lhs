@@ -8,8 +8,7 @@ and Control.Monad as well.
 > import Text.Parsec.String.Parsec (try)
 > import Text.Parsec.String.Char (oneOf, char, digit
 >                                ,string, letter, satisfy)
-> import Text.Parsec.String.Combinator (many1, choice, chainl1, between
->                                      ,count, option, optionMaybe, optional)
+> import Text.Parsec.String.Combinator 
 > import Control.Applicative ((<$>), (<*>), (<$), (<*), (*>), (<|>), many)
 > import Control.Monad (void, ap, mzero)
 > import Data.Char (isLetter, isDigit)
@@ -21,7 +20,7 @@ You should look at the source for these functions and try to
 understand how they are implemented.
 
 <http://hackage.haskell.org/package/parsec-3.1.3/docs/src/Text-Parsec-Combinator.html>
-
+f
 The style of the source code in the Parsec library sources is a little
 different to what we used at the end of the last tutorial. You can try
 reimplementing each of the Text.Parsec.Combinator module functions
@@ -502,11 +501,12 @@ TODO: examples for all of these
 We've already seen all of these, except `(<$)`. This is often used to
 parse a keyword and return a no argument constructor:
 
-> data Something = Type1 | Type2 | Type3
+> data Something = Type1 | Type2 | Type3 
+>  deriving Show
 
 > something :: Parser Something
-> something = choice [Type1 <$ string "type1"
->                    ,Type2 <$ string "type2"
+> something = choice [try $ Type1 <$ string "type1"
+>                    ,try $ Type2 <$ string "type2"
 >                    ,Type3 <$ string "type3"]
 
 There is also `(<**>)` which is `(<*>)` with the arguments flipped.

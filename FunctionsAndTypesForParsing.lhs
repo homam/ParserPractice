@@ -8,7 +8,7 @@ full types in Parsec.
 > import Text.Parsec (ParseError)
 > import Text.Parsec.String (Parser)
 > import Text.Parsec.String.Parsec (parse)
-> import Text.Parsec.String.Char (oneOf)
+> import Text.Parsec.String.Char 
 > import Text.Parsec.String.Combinator (eof,manyTill,anyToken)
 > import Control.Applicative ((<$>), (<*>), (<*), (*>), many)
 > import Control.Monad (void)
